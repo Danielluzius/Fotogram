@@ -19,8 +19,8 @@ function renderImages() {
 
   let html = '';
 
-  for (let i = 0; i < imagePaths.length; i++) {
-    html += `<img src="${imagePaths[i]}" alt="Bild ${i + 1}" class="photo">`;
+  for (let index = 0; index < imagePaths.length; index++) {
+    html += `<img src="${imagePaths[index]}" class="photo">`;
   }
 
   gallery.innerHTML = html;

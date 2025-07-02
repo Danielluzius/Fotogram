@@ -3,6 +3,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Bitcount Grid Double', system-ui;
+  font-weight: 300;
 }
 
 html,
@@ -65,11 +67,11 @@ footer {
   height: 150px;
   object-fit: cover;
   border-radius: 8px;
-  transition: transform 0.8s ease, box-shadow 0.2s ease;
+  transition: transform 0.8s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
 .photo:hover {
   transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.4);
 }
