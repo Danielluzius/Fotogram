@@ -5,42 +5,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fotogram</title>
-    <link rel="icon" type="image/png" href="./img/favicon.png" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&display=swap"
-        rel="stylesheet">
+    <link rel="icon" type="image/png" href="./img/favicon.png" />
 </head>
 
 <body>
-    <!-- Wrapper für Flexbox-Layout -->
     <div class="page-wrapper">
 
-        <!-- Header -->
         <header>
             <h1>Fotogram</h1>
         </header>
 
-        <!-- Hauptinhalt -->
         <main>
             <section class="intro">
                 <h2>Your personal photo album</h2>
             </section>
 
-            <section class="gallery">
-                <!-- später Vorschaubilder -->
-            </section>
+            <section class="gallery"></section>
         </main>
 
-        <!-- Footer (immer unten klebend) -->
         <footer>
             <p>FOOTER TEXT</p>
         </footer>
-
     </div>
 
-    <!-- Skript -->
+    <div id="popup_wrapper" class="popup-overlay popup-hidden">
+        <button onclick="closePopUp()">✖</button>
+        <img id="popup_image" src="" alt="Großes Bild">
+    </div>
+
     <script src="script.js"></script>
 </body>
 

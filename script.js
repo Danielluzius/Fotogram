@@ -1,4 +1,3 @@
-// Array mit Bildpfaden (du kannst später echte Pfade einfügen)
 const imagePaths = [
   'https://picsum.photos/id/1011/600/400',
   'https://picsum.photos/id/1012/600/400',
@@ -16,14 +15,33 @@ const imagePaths = [
 
 function renderImages() {
   const gallery = document.querySelector('.gallery');
-
   let html = '';
 
-  for (let index = 0; index < imagePaths.length; index++) {
-    html += `<img src="${imagePaths[index]}" class="photo">`;
+  for (let i = 0; i < imagePaths.length; i++) {
+    html += `<img 
+      src="${imagePaths[i]}"  
+      class="photo" 
+      onclick="openPopUp('${imagePaths[i]}')"
+    >`;
   }
 
   gallery.innerHTML = html;
+}
+
+function openPopUp(imageUrl) {
+  const popupWrapper = document.getElementById('popup_wrapper');
+  const popupImage = document.getElementById('popup_image');
+
+  popupImage.src = imageUrl;
+  popupWrapper.classList.remove('popup-hidden');
+}
+
+function closePopUp() {
+  const popupWrapper = document.getElementById('popup_wrapper');
+  const popupImage = document.getElementById('popup_image');
+
+  popupWrapper.classList.add('popup-hidden');
+  popupImage.src = '';
 }
 
 renderImages();
