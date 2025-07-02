@@ -10,7 +10,7 @@ html,
 body {
   height: 100%;
 
-  color: white;
+  color: 193041;
 }
 
 /* Layout */
@@ -20,16 +20,19 @@ body {
   min-height: 100vh;
 }
 
-header,
-footer {
+header {
   padding: 20px 30px;
-  background-color: #0e222a;
+  background-color: #f9f0df;
+  display: flex;
+  align-items: flex-end;
 }
 
 footer {
   text-align: center;
   font-size: 14px;
-  color: #aaa;
+  color: #193041;
+  padding: 20px 30px;
+  background-color: #f9f0df;
 }
 
 main {
@@ -39,13 +42,20 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  background-color: #0a1a22;
+  background-color: #bca8bd;
 }
 
 /* Intro */
 .intro {
   font-size: clamp(20px, 4vw, 32px);
   text-align: center;
+}
+
+/* h1 {
+} */
+
+.talegram-logo {
+  height: 64px;
 }
 
 /* Galerie */
@@ -68,7 +78,7 @@ main {
 
 .photo:hover {
   transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 8px rgb(251, 240, 223, 0.4);
 }
 
 /* Popup */
