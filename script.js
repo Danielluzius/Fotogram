@@ -14,7 +14,41 @@ const imagePaths = [
   './img/arielle_erik.webp',
 ];
 
+const imageNames = [
+  '@vom_dieb_zum_prinz',
+  '@susis_restaurantreview',
+  '@sleepywomen',
+  '@glockenturmboy',
+  '@tinkerzwinker',
+  '@cinderella_ella_ella_eh_eh_eh',
+  '@drachenladyboy',
+  '@geppettodaddy ',
+  '@belle2012',
+  '@redcappygirl',
+  '@haircare_guy',
+  '@spieglein_approved',
+  '@sternzeichen_fisch',
+];
+
+const imageDescriptions = [
+  'Chilln mir der Prinzessin! #DerTeppichHatKeineSicherheitsgurte',
+  'Heute mal mit Strolch am Start. #SieHatDenStrolchGezähmt #KeinDateOhneFleischbällchen ',
+  'Jetzt erstmal FRÜHSTÜCKEN! #Nach100JahrenEndlichWach',
+  'Mit der Aussicht bekomme ich sie alle! #GlöcknerMitHerz ',
+  'Chillen mit den lost childs! #NeverGrowUp #NimmerlandVibes',
+  'Mist ist habe den Ofen angelassen! #IchWarNurKurzDa #KeineZeitFürErklärungen ',
+  'Ich bin echt nicht so einer..!#KeinKerlWieAlleAndern',
+  'Sie werden so schnell echt..! #KeinFadenZwischenUns',
+  'Endlich ist der Bart Kurz.. #TanzMitDemBi(e)st #LiebeDieVerwandelt',
+  'Ist da wer hinter mir? #WaldspaziergangMitRisiko #RotUndRätselhaft',
+  'Wir brauchen echt eine Haustür! #HaareRunterIchBinDa',
+  'Hmm..Nur ein bissen.. #DieGrannyWarEchtSus',
+  'Barfuss im Sand! #VomFischZurFrau #FürDiesenKussHabeIchBeineBekommen ',
+];
+
 const gallery = document.querySelector('.gallery');
+
+let currentIndex = 0; // Index des aktuell geöffneten Bildes
 
 function renderImages() {
   let html = '';
@@ -23,25 +57,58 @@ function renderImages() {
     html += /*html*/ `<img 
       src="${imagePaths[i]}"  
       class="photo" 
-      onclick="openPopUp('${imagePaths[i]}')"
+      onclick="openPopUp('${imagePaths[i]}', ${i})"
     >`;
   }
+
   gallery.innerHTML = html;
 }
 renderImages();
 
 // Popup über Dialog
+
 const popup = document.getElementById('popup');
 
-function openPopUp(imagePopup) {
-  popup.innerHTML = `
-    <button onclick="closePopUp()">X</button>
-    <img src="${imagePopup}" alt="Großes Bild">
-  `;
-  popup.showModal(); // Zeigt den Dialog an
+function openPopUp(imageUrl, index) {
+  currentIndex = index;
+
+  const username = imageNames[index];
+  const caption = imageDescriptions[index];
+
+  popup.innerHTML = /*html*/ `
+  <div class="popup-card">
+    <div class="popup-header">
+      <p class="popup-username">${username}</p>
+      <button onclick="closePopUp()">❌</button>
+    </div>
+
+    <div class="popup-main-wrapper">
+      <button class="arrow" onclick="prevImage()">❮</button>
+
+      <div class="popup-content">
+        
+        <img src="${imageUrl}" alt="Großes Bild">
+        <p class="popup-caption">${caption}</p>
+      </div>
+
+      <button class="arrow" onclick="nextImage()">❯</button>
+    </div>
+  </div>
+`;
+  popup.showModal();
 }
 
 function closePopUp() {
   popup.close(); // Schließt den Dialog
   popup.innerHTML = '';
+}
+
+function nextImage() {
+  currentIndex = (currentIndex + 1) % imagePaths.length;
+  openPopUp(imagePaths[currentIndex], currentIndex);
+}
+
+function prevImage() {
+  currentIndex = (currentIndex - 1 + imagePaths.length) % imagePaths.length;
+  openPopUp(imagePaths[currentIndex], currentIndex);
 }
