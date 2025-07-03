@@ -76,12 +76,10 @@ h3 {
   text-align: center;
 }
 
-/* Logo */
 .fairy-talegram-logo {
   height: 64px;
 }
 
-/* Galerie */
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -104,7 +102,6 @@ h3 {
   box-shadow: 0 4px 8px rgba(251, 240, 223, 0.4);
 }
 
-/* Popup */
 dialog {
   max-width: 88vw;
   top: 50%;
@@ -172,7 +169,6 @@ dialog::backdrop {
   border-radius: 10px;
 }
 
-/* Pfeile */
 .arrow {
   font-size: clamp(16px, 2.5vw, 32px);
   background: none;
@@ -188,7 +184,6 @@ button:hover {
   cursor: pointer;
 }
 
-/* Schließen-Button */
 button {
   width: 30px;
   height: 30px;

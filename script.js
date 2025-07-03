@@ -48,7 +48,7 @@ const imageDescriptions = [
 
 const gallery = document.querySelector('.gallery');
 
-let currentIndex = 0; // Index des aktuell geöffneten Bildes
+let currentIndex = 0;
 
 function renderImages() {
   let html = '';
@@ -64,8 +64,6 @@ function renderImages() {
   gallery.innerHTML = html;
 }
 renderImages();
-
-// Popup über Dialog
 
 const popup = document.getElementById('popup');
 
@@ -99,7 +97,7 @@ function openPopUp(imageUrl, index) {
 }
 
 function closePopUp() {
-  popup.close(); // Schließt den Dialog
+  popup.close();
   popup.innerHTML = '';
 }
 
