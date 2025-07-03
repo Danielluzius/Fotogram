@@ -99,7 +99,7 @@ h3 {
   box-shadow: 0 4px 8px rgb(251, 240, 223, 0.4);
 }
 
-/* Popup */
+/* Popup
 .popup-overlay {
   position: fixed;
   inset: 0;
@@ -130,6 +130,36 @@ h3 {
 }
 
 /* Hide Popup */
-.popup-hidden {
+/* .popup-hidden {
   display: none;
+} */
+
+dialog {
+  border: none;
+  padding: 0;
+  background: transparent;
+  position: relative;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+dialog img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 10px;
+}
+
+dialog button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: white;
+  color: black;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
 }

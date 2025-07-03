@@ -14,35 +14,34 @@ const imagePaths = [
   './img/arielle_erik.webp',
 ];
 
+const gallery = document.querySelector('.gallery');
+
 function renderImages() {
-  const gallery = document.querySelector('.gallery');
   let html = '';
 
   for (let i = 0; i < imagePaths.length; i++) {
-    html += `<img 
+    html += /*html*/ `<img 
       src="${imagePaths[i]}"  
       class="photo" 
       onclick="openPopUp('${imagePaths[i]}')"
     >`;
   }
-
   gallery.innerHTML = html;
 }
+renderImages();
 
-function openPopUp(imageUrl) {
-  const popupWrapper = document.getElementById('popup_wrapper');
-  const popupImage = document.getElementById('popup_image');
+// Popup über Dialog
+const popup = document.getElementById('popup');
 
-  popupImage.src = imageUrl;
-  popupWrapper.classList.remove('popup-hidden');
+function openPopUp(imagePopup) {
+  popup.innerHTML = `
+    <button onclick="closePopUp()">X</button>
+    <img src="${imagePopup}" alt="Großes Bild">
+  `;
+  popup.showModal(); // Zeigt den Dialog an
 }
 
 function closePopUp() {
-  const popupWrapper = document.getElementById('popup_wrapper');
-  const popupImage = document.getElementById('popup_image');
-
-  popupWrapper.classList.add('popup-hidden');
-  popupImage.src = '';
+  popup.close(); // Schließt den Dialog
+  popup.innerHTML = '';
 }
-
-renderImages();
