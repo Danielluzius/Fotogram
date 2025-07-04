@@ -76,6 +76,13 @@ h3 {
   text-align: center;
 }
 
+.intro-text {
+  font-size: clamp(16px, 2.5vw, 18px);
+  color: #193041;
+  margin-top: 10px;
+  max-width: 800px;
+}
+
 .fairy-talegram-logo {
   height: 64px;
 }

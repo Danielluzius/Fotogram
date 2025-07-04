@@ -15,7 +15,7 @@ const imagePaths = [
 ];
 
 const imageNames = [
-  '@from_thief_to_prince',
+  '@a_djinns_best_friend',
   '@ladys_restaurant_review',
   '@sleepy_women',
   '@bell_tower_boy',
