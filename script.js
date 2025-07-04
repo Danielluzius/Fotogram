@@ -50,7 +50,6 @@ const gallery = document.querySelector('.gallery');
 const popup = document.getElementById('popup');
 let currentIndex = 0;
 
-// Template für ein einzelnes Galerie-Bild
 function createGalleryImageHTML(i) {
   return /*html*/ `<img 
     src="${imagePaths[i]}"  
@@ -59,7 +58,6 @@ function createGalleryImageHTML(i) {
   >`;
 }
 
-// Template für das Pop-up
 function createPopupHTML(imageUrl, username, caption) {
   return /*html*/ `
     <div class="popup-card">
@@ -82,7 +80,6 @@ function createPopupHTML(imageUrl, username, caption) {
   `;
 }
 
-// Galerie-Rendering
 function renderImages() {
   let html = '';
 
@@ -93,7 +90,6 @@ function renderImages() {
   gallery.innerHTML = html;
 }
 
-// Öffne das Pop-up
 function openPopUp(imageUrl, index) {
   currentIndex = index;
   const username = imageNames[index];
@@ -103,19 +99,16 @@ function openPopUp(imageUrl, index) {
   popup.showModal();
 }
 
-// Pop-up schließen
 function closePopUp() {
   popup.close();
   popup.innerHTML = '';
 }
 
-// Vorheriges Bild
 function prevImage() {
   currentIndex = (currentIndex - 1 + imagePaths.length) % imagePaths.length;
   openPopUp(imagePaths[currentIndex], currentIndex);
 }
 
-// Nächstes Bild
 function nextImage() {
   currentIndex = (currentIndex + 1) % imagePaths.length;
   openPopUp(imagePaths[currentIndex], currentIndex);
