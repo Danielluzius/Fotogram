@@ -63,7 +63,6 @@ function renderImages() {
 
   gallery.innerHTML = html;
 }
-renderImages();
 
 const popup = document.getElementById('popup');
 
