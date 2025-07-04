@@ -47,65 +47,76 @@ const imageDescriptions = [
 ];
 
 const gallery = document.querySelector('.gallery');
-
+const popup = document.getElementById('popup');
 let currentIndex = 0;
 
+// Template für ein einzelnes Galerie-Bild
+function createGalleryImageHTML(i) {
+  return /*html*/ `<img 
+    src="${imagePaths[i]}"  
+    class="photo" 
+    onclick="openPopUp('${imagePaths[i]}', ${i})"
+  >`;
+}
+
+// Template für das Pop-up
+function createPopupHTML(imageUrl, username, caption) {
+  return /*html*/ `
+    <div class="popup-card">
+      <div class="popup-header">
+        <p class="popup-username">${username}</p>
+        <button onclick="closePopUp()">❌</button>
+      </div>
+
+      <div class="popup-main-wrapper">
+        <button class="arrow" onclick="prevImage()">❮</button>
+
+        <div class="popup-content">
+          <img src="${imageUrl}" alt="Großes Bild">
+          <p class="popup-caption">${caption}</p>
+        </div>
+
+        <button class="arrow" onclick="nextImage()">❯</button>
+      </div>
+    </div>
+  `;
+}
+
+// Galerie-Rendering
 function renderImages() {
   let html = '';
 
   for (let i = 0; i < imagePaths.length; i++) {
-    html += /*html*/ `<img 
-      src="${imagePaths[i]}"  
-      class="photo" 
-      onclick="openPopUp('${imagePaths[i]}', ${i})"
-    >`;
+    html += createGalleryImageHTML(i);
   }
 
   gallery.innerHTML = html;
 }
 
-const popup = document.getElementById('popup');
-
+// Öffne das Pop-up
 function openPopUp(imageUrl, index) {
   currentIndex = index;
-
   const username = imageNames[index];
   const caption = imageDescriptions[index];
 
-  popup.innerHTML = /*html*/ `
-  <div class="popup-card">
-    <div class="popup-header">
-      <p class="popup-username">${username}</p>
-      <button onclick="closePopUp()">❌</button>
-    </div>
-
-    <div class="popup-main-wrapper">
-      <button class="arrow" onclick="prevImage()">❮</button>
-
-      <div class="popup-content">
-        
-        <img src="${imageUrl}" alt="Großes Bild">
-        <p class="popup-caption">${caption}</p>
-      </div>
-
-      <button class="arrow" onclick="nextImage()">❯</button>
-    </div>
-  </div>
-`;
+  popup.innerHTML = createPopupHTML(imageUrl, username, caption);
   popup.showModal();
 }
 
+// Pop-up schließen
 function closePopUp() {
   popup.close();
   popup.innerHTML = '';
 }
 
-function nextImage() {
-  currentIndex = (currentIndex + 1) % imagePaths.length;
+// Vorheriges Bild
+function prevImage() {
+  currentIndex = (currentIndex - 1 + imagePaths.length) % imagePaths.length;
   openPopUp(imagePaths[currentIndex], currentIndex);
 }
 
-function prevImage() {
-  currentIndex = (currentIndex - 1 + imagePaths.length) % imagePaths.length;
+// Nächstes Bild
+function nextImage() {
+  currentIndex = (currentIndex + 1) % imagePaths.length;
   openPopUp(imagePaths[currentIndex], currentIndex);
 }
