@@ -27,3 +27,5 @@ Scroll through a curated gallery, open each post to reveal captions and username
 ## 🧾 File Structure
 
 ![Screenshot](./img/screenshot.png)
+
+![Screenshot](./img/screenshot2.png)
