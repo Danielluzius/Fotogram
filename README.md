@@ -26,10 +26,10 @@ Scroll through a curated gallery, open each post to reveal captions and username
 
 ## 🧾 File Structure
 
-📁 img/ → AI-generated images
-📄 index.html → Main page and layout
-📄 style.css → Styling and responsiveness
-📄 script.js → Logic for rendering & interactivity
+- 📁 img/ → AI-generated images
+- 📄 index.html → Main page and layout
+- 📄 style.css → Styling and responsiveness
+- 📄 script.js → Logic for rendering & interactivity
 
 ## 👇 Screenshots 👇
 
